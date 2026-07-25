@@ -143,11 +143,13 @@ function App() {
 
               {model.modalities.length > 0 && (
                 <div className="chip-row">
-                  {model.modalities.slice(0, 4).map((modality) => (
-                    <span key={modality} className="chip">
-                      {modality}
-                    </span>
-                  ))}
+                  {Array.from(new Set(model.modalities))
+                    .slice(0, 4)
+                    .map((modality) => (
+                      <span key={modality} className="chip">
+                        {modality}
+                      </span>
+                    ))}
                 </div>
               )}
 
