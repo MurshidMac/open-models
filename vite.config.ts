@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 const repoName = 'open-models'
+const isGithubPages = process.env.GITHUB_ACTIONS === 'true'
 
-export default defineConfig(({ command }) => ({
-  base: command === 'build' ? `/${repoName}/` : '/',
+export default defineConfig({
+  base: isGithubPages ? `/${repoName}/` : '/',
   plugins: [react(), tailwindcss()],
-}))
+})
